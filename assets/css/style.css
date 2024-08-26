@@ -13,6 +13,7 @@
 :root {
     --text-color: rgb(0, 0, 0);
     --primary-color: #BDFCC9;
+    /* --primary-color: #9fffaf; */
     --white-color: #ffffff;
     --black-color: #000000;
 }
@@ -25,6 +26,8 @@ html, body {
 body {
     font-family: "Poppins", system-ui;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Reset margin and padding for all headings and paragraphs */
@@ -183,7 +186,7 @@ header {
     z-index: 1000;
     transition: top 0.3s ease-in-out;
 
-    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    backdrop-filter: blur(5px); /* Adjust the blur value as needed */
     background-color: rgba(255, 255, 255, 0.8); /* Optional: Add semi-transparency */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
@@ -227,7 +230,7 @@ nav ul li button.book-btn {
 }
 
 nav ul li button.book-btn:hover {
-    transform: scale(1.05); /* Expands the button slightly on hover */
+    transform: scale(0.95); /* Expands the button slightly on hover */
 }
 
 
@@ -243,7 +246,8 @@ footer {
 /* Main Content */
 
 .main-content{
-    margin: 150px 50px 50px 50px;
+    margin: 100px 50px 50px 50px;
+    flex: 1;
 }
 
 section{
@@ -332,13 +336,16 @@ section{
 .right-content {
     flex: 0 0 40%; /* Set the width to 40% */
     overflow: hidden; 
+    position: relative;
+    border-radius: 50px;
     
 }
 
 .right-content img {
     max-width: 100%;
     height: 500px;
-    border-radius: 50px;
+    transform: scale(1.1); 
+    object-fit: cover; 
    
 }
 
@@ -405,13 +412,24 @@ section{
     font-weight: 500;
 }
 
-.menu-item img {
+/* .menu-item img {
     max-width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-right: 15px;
     object-fit: cover;
+} */
+
+.menu-item img {
+    width: 120px; /* Set a fixed width */
+    height: 120px; /* Set a fixed height */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 15px; /* Space between the image and the item details */
+    object-fit: cover; /* Ensure the image covers the entire circular area */
+    overflow: hidden; /* Ensure the image doesn't overflow the circular area */
+    background-color: #f5f5f5; /* Add a background color to fill any gaps for smaller images */
 }
+
 
 .item-details {
     flex: 1;
@@ -438,4 +456,261 @@ section{
 
 .menu-details-left{
     left: 25%;
+}
+
+
+/* Latest Burger */
+
+.latest-burger {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    min-width: calc(100% / 3);
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card  h3{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card  p{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* .card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 30px;
+} */
+
+.card img {
+    width: 100%; /* Ensures the image takes up 100% of the card's width */
+    height: 350px; /* Sets a fixed height for all images */
+    object-fit: cover; /* Ensures the image covers the entire area, preserving aspect ratio */
+    margin-bottom: 10px; /* Adds space below the image */
+    border-radius: 30px; /* Rounds the corners of the image */
+}
+
+.carousel-control {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.prev {
+    left: 30px;
+    z-index: 2;
+}
+
+.next {
+    right: 30px;
+    z-index: 2;
+}
+
+/* Visit Us Section */
+
+.visit-us-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    margin-bottom: 300px;
+}
+
+.map-container {
+   font-size: 20px;
+}
+
+.map-container iframe{
+    border-radius: 50px;
+}
+
+.visit-details {
+  
+    /* height: auto;
+    padding-left: 10px;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    padding: 30px;
+    
+    z-index: 1;
+    top: 10%;
+    left: 75%; */
+
+    background-color: var(--primary-color);
+    padding: 50px;
+    border-radius: 30px;
+    position: absolute;
+    top: 10%;
+    left: 75%;
+    transform: translateX(-60%) translateY(0);
+    transition: transform 0.1s ease-out; /* Smooth transition with quick response */
+    z-index: 1;
+    height: auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.visit-details .visit-us-logo{
+    width: 200px;
+    height: 50px;
+}
+
+.visit-details h2{
+    font-size: 24px;
+}
+
+.visit-details p{
+    font-size: 16px;
+}
+
+.visit-details h4{
+    font-size: 20px;
+}
+
+.visit-details .visit-us-ptag{
+    margin-top: 10px;
+}
+
+.visit-us-contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 150px;
+}
+
+/* Book Table Page */
+.book-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: #f8f8f8;
+}
+
+.reservation-container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.reservation-image {
+    flex: 1;
+    background-color: #f0f0f0;
+}
+
+.reservation-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+
+.reservation-card {
+    flex: 1;
+    padding: 40px;
+}
+
+.reservation-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--black-color);
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    /* background-color: #FF6347; */
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    /* transition: background-color 0.3s ease; */
+}
+
+.submit-btn:hover {
+    /* background-color: #FF4500; */
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    transform: scale(0.95);
+    transition: transform 0.1s ease-out; 
+   
+}
+
+.success-message {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.success-message i {
+    margin-right: 10px;
 }

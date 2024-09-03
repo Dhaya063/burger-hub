@@ -618,6 +618,98 @@ section{
     gap: 150px;
 }
 
+
+
+
+/* News Page */
+
+
+/* News Title Section */
+.news-title {
+    text-align: center;
+    padding: 40px 20px; /* Adjust padding as needed */
+    background-color: var(--primary-color); /* Light background color */
+    margin-bottom: 30px; /* Space below the title section */
+    border-radius: 20px;
+}
+
+.news-title h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 15px; /* Space between h1 and p */
+    font-weight: bold;
+}
+
+.news-title p {
+    background-color: var(--primary-color); /* Primary color background */
+    color: #423f3f; /* White text color */
+    padding: 10px 20px; /* Padding inside the p tag */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Inline block to fit content */
+    font-size: 18px; /* Font size */
+    max-width: 80%; /* Ensures the paragraph doesn't stretch too wide */
+    margin: 0 auto; /* Centers the paragraph */
+    font-weight: 600;
+}
+
+/* Grid layout for the news cards */
+.news-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.news-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Ensure text color inherits from parent */
+}
+
+.news-card img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+}
+
+.news-card p {
+    padding: 15px;
+    font-size: 14px;
+    color: #888;
+}
+
+.news-card h3 {
+    padding: 0 15px 15px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .news-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .news-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
 /* Book Table Page */
 .book-table {
     display: flex;
@@ -714,3 +806,94 @@ section{
 .success-message i {
     margin-right: 10px;
 }
+
+
+/* Animation */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  .animate-on-scroll {
+    opacity: 0; /* Start hidden */
+    transform: translateY(50px); /* Start below the viewport */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .animate-on-scroll.show {
+    animation: fadeInUp 0.6s forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
+  
+  .animate-on-scroll {
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .animate-on-scroll.show.fadeInUp {
+    animation: fadeInUp 0.6s forwards;
+  }
+  
+  .animate-on-scroll.show.fadeInLeft {
+    animation: fadeInLeft 0.6s forwards;
+  }
+  
+  .animate-on-scroll.show.fadeInRight {
+    animation: fadeInRight 0.6s forwards;
+  }
+  
+  .animate-on-scroll.show.zoomIn {
+    animation: zoomIn 0.6s forwards;
+  }
+  
+  add some smooth transition and make it more beautiful 

@@ -175,3 +175,44 @@ document.addEventListener("DOMContentLoaded", function() {
         successMessage.style.display = 'block'; // Show the success message
     });
 });
+
+
+
+// Scroll animation
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+//     const observer = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add('show');
+//             } else {
+//                 entry.target.classList.remove('show'); // Optional: Remove class when not in view
+//             }
+//         });
+//     }, { threshold: 0.3 });
+
+//     animateElements.forEach(element => {
+//         observer.observe(element);
+//     });
+// });
+
+
+// Scroll animation
+
+document.addEventListener('DOMContentLoaded', function() {
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } 
+        });
+    }, { threshold: 0.3 });
+
+    animateElements.forEach(element => {
+        observer.observe(element);
+    });
+});

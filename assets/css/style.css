@@ -467,6 +467,12 @@ section{
     position: relative;
 }
 
+.latest-burger-title{
+    font-size: 36px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
 .carousel-container {
     position: relative;
     width: 100%;
